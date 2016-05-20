@@ -1,40 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>WaiPhaSom Shop</title>
+
+  <!-- Bootstrap -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <style type="text/css">
+    .marketing{
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .divider{
+      margin: 80px 0;
+    }
+    hr{
+      border: solid 1px #eee;
+    }
+
+    .thumbnail{
+
+    height: 500px;
+
+    }
+
+    .thumbnail img{
+      height: 250px;
+      width: 200px;
+    }
+
+  </style>
+</head>
+<body style="background-color: #D1D1D1">
+
 <div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> Success adding a new product
+  <strong>Success!</strong> เพิ่มสินค้าสำเร็จ
 </div>
 <div class="alert alert-success alert-dismissible" role="alert" ng-show="editSuccess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> Success edit the product
+  <strong>Success!</strong> แก้ไขสินค้าสำเร็จ
 </div>
 <div class="alert alert-success alert-dismissible" role="alert" ng-show="deleteSucess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> Success delete the product
+  <strong>Success!</strong> ลบสินค้าสำเร็จ
 </div>
 <div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
   <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Products</div>
-    <div class="panel-body">
+    <!--<div class="panel-heading">Products</div>-->
+    <div class="panel-body" style="background-color: #D1D1D1">
       <div class="col-lg-4">
       </div>
-      <div class="col-lg-6">
-        <div class="input-group">
+     <div class="col-lg-6">
+       <!--  <div class="input-group">
           <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="searchProduct(name)">Search</button>
+                    <button class="btn btn-warning" type="button" ng-click="searchProduct(name)">Search</button>
                 </span>
-        </div>
+        </div>-->
         <!-- /input-group -->
       </div>
       <!-- /.col-lg-6 -->
+
+
+
+    <!-- Product Thumbnail -->
+    <div class="row">
+
+      <div class="col-sm-6 col-md-3" ng-repeat="product in vm.products">
+        <div class="thumbnail">
+          <div ng-repeat="image in product.images" class="text-center" class="thumbnail">
+            <img ng-src="data:{{image.contentType}};base64,{{image.content}}" width="100px" height="250px">
+          </div>
+          <div class="caption">
+            <h3>{{product.name}}</h3>
+            <p>ราคา : {{product.netPrice | number}}</p>
+            <p><a href="#" class="btn btn-warning" role="button" ng-click="vm.addToCart(product)" ng-show="hasRole('user')">หยิบใส่ตระกร้า</a></p>
+            <p><a ng-href="#/editProduct/{{product.id}}" class="btn btn-warning" role="button" ng-click="" ng-show="hasRole('admin')"><span class="glyphicon glyphicon-edit" aria-hidden="true">แก้ไข</span></a>
+            <a href="#" class="btn btn-warning" role="button" ng-click="vm.deleteProduct(product.id)" ng-show="hasRole('admin')">ลบ</a></p>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
 
-
+    </div>
     <!-- Table -->
-    <table class="table table-hover">
+    <!--<table class="table table-hover">
       <tr>
         <th>#</th>
         <th translate>listProduct.name</th>
@@ -78,6 +147,27 @@
         <th></th>
 
       </tr>
-    </table>
+    </table>-->
   </div>
 </div>
+<hr class="divider">
+
+<footer style="background-color: #F15A24  ">
+  <br>
+
+  <h5>&nbsp; &nbsp;Watphasom Project</h5>
+  <p class="pull-right" ><a href="#">ไปด้านบน</a></p>
+  <h4> &nbsp; By: Intercult group</h4><br>
+
+
+
+
+</footer>
+<!--</div>-->
+<!-- End Marketing -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -29,8 +29,10 @@
 
         })
 
+
       });
     }
+    
 
     vm.redirectToHome = function () {
       $rootScope.addSuccess = true;

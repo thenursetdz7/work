@@ -9,7 +9,7 @@
         <form name="editform" novalidate flow-init  flow-complete="vm.redirectToHome()" >
             <div class="form-group">
                 <!-- Sidebar content-->
-                <label for="productname">name :</label>
+                <label for="productname">ชื่อสินค้า :</label>
                 <input ng-model="vm.product.name" class="form-control" id="productname" name="productname" placeholder="name" required/>
 
                 <div class="alert alert-danger" role="alert" ng-show="vm.editform.productname.$error.required">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="productdescription">Description :</label>
+                <label for="productdescription">รายละเอียด :</label>
                 <input ng-model="vm.product.description" class="form-control" id="productdescription"
                        placeholder="description" name="productdescription" required/>
 
@@ -31,7 +31,7 @@
 
             </div>
             <div class="form-group">
-                <label for="productprice">price :</label>
+                <label for="productprice">ราคา :</label>
                 <input ng-model="vm.product.totalPrice" name="productprice" class="form-control" id="productprice"
                        placeholder="price" type="number" required/>
 

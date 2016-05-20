@@ -1,15 +1,94 @@
+<style>
+  body {
+    font-family: "Lato", sans-serif;
+  }
 
-<div class="sidebar-nav">
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+  }
+
+  .sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+</style>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">☰</a>
+  <ul class="nav nav-list">
+    <li class="nav-header">Watphasom</li>
+    <li ng-class="{true: 'active'}[menuActive('/addProduct')]">
+      <a href="#/addProduct"  ng-show="hasRole('admin')">เพิ่มสินค้า</a>
+    </li>
+    <li ng-class="{true: 'active'}[menuActive('/listProduct')]">
+      <a href="#/listProduct">สินค้าทั้งหมด</a>
+    </li>
+    <li ng-class="{true: 'active'}[menuActive('/shoppingCart')]">
+      <a href="#/shoppingCart" ng-show="hasRole('user')">ตะกร้าของคุณ</a>
+    </li>
+  </ul>
+</div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+</script>
+<!--<div class="sidebar-nav" >
     <ul class="nav nav-list">
         <li class="nav-header">Watphasom</li>
     	<li ng-class="{true: 'active'}[menuActive('/addProduct')]">
-        	<a href="#/addProduct"  ng-show="hasRole('admin')">Add Product</a>
+        	<a href="#/addProduct"  ng-show="hasRole('admin')">เพิ่มสินค้า</a>
     	</li>
     	<li ng-class="{true: 'active'}[menuActive('/listProduct')]">
-        	<a href="#/listProduct">All products</a>
+        	<a href="#/listProduct">สินค้าทั้งหมด</a>
     	</li>
       <li ng-class="{true: 'active'}[menuActive('/shoppingCart')]">
-        <a href="#/shoppingCart" ng-show="hasRole('user')">Your cart</a>
+        <a href="#/shoppingCart" ng-show="hasRole('user')">ตะกร้าของคุณ</a>
       </li>
     </ul>
-</div><!--/.well -->
+</div>-->
+
+<!--/.well -->
+      <script>
+        $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+      </script>

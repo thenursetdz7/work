@@ -29,21 +29,20 @@ public class DatabaseInitializationBean implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         Product[] initProduct = {
-                new Product(1l, "Banana", "the good book reader", 6900.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/x.png"), 200)),
-                new Product(2l, "Surface Pro", "The unknow computer", 34000.00, ImageUtil.getImage("pic/x.png")),
-                new Product(3l, "Mac pro", " Mac book interim", 44000.00, ImageUtil.getImage("pic/x.png")),
-                new Product(4l, "Candle", "use for lightenup the world", 10.00, ImageUtil.getImage("pic/x.png")),
-                new Product(5l, "Bin", "User for what ?", 200.00, ImageUtil.getImage("pic/x.png")),
-                new Product(6l, "Telephone", "Call the others", 150.00, ImageUtil.getImage("pic/x.png")),
-                new Product(7l, "iPhone", "What is it?", 26000.00, ImageUtil.getImage("pic/x.png")),
-                new Product(8l, "Galaxy Note 4", "Who still use this ?", 24000.00, ImageUtil.getImage("pic/x.png")),
-                new Product(9l, "AngularJS", "we hate it", 2000.00, ImageUtil.getImage("pic/x.png")),
-                new Product(10l, "Mazda 3", "Very handsome guy use this", 300000.00, ImageUtil.getImage("pic/x.png"))
+                new Product(1l, "กล้วยทอดเหลือง (กล้วยไข่)", "กล้วยเป็นสินค้าขึ้นชื่อของอำเภอสะเมิง อำเภอที่ปลูกพันธุ์พื้นเมือง เช่นกล้วยน้ำว้า กล้วยไข่ได้หวานหอมลูกใหญ่ จึงนิยมนำมาแปรรูปจนเป็นของขึ้นชื่อของอำเภอสะเมิง", 50.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/yellowbanana.jpg"), 350)),
+                new Product(2l, "กล้วยทอดแดง (กล้วยน้ำว้า)", "กล้วยเป็นสินค้าขึ้นชื่อของอำเภอสะเมิง อำเภอที่ปลูกพันธุ์พื้นเมือง เช่นกล้วยน้ำว้า กล้วยไข่ได้หวานหอมลูกใหญ่ จึงนิยมนำมาแปรรูปจนเป็นของขึ้นชื่อของอำเภอสะเมิง", 50.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/redbanana.jpg"), 350)),
+                new Product(3l, "ข้าวกล้องงอกดอย GABA Rice", " ข้าวกล้องดอยเป็นข้าวพันธุ์เดียวกับข้าวขัดขาวและข้าวกล้อง แต่มีกรรมวิธีต่างกัน (ปริมาณบรรจุ 1 kg)", 95.00,  ImageUtil.resizeImage(ImageUtil.getImage("pic/jasmindoi.jpg"), 350)),
+                new Product(4l, "ข้าวขัดขาว", "ข้าวขัดขาวดอยเป็นข้าวพื้นถิ่นพันธุ์โปะโละ มีวิตามิน เหนียว หอม นุ่ม เคี้ยวแล้วจะมีรสหวานธรรมชาติ", 45.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/rice.jpg"), 350)),
+                new Product(5l, "ข้าวกล้องดอย", "ข้าวกล้องดอยเป็นข้าวพื้นถิ่นพันธุ์โปะโละเช่นเดียวกับข้าวขัดขาวดอย แต่ผ่านการสีน้อยครั้งจึงยังเหลือแร่ธาตุและวิตามินอยู่มาก", 55.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/jasmin.jpg"), 350))
         };
         productRepository.save(Arrays.asList(initProduct));
 
 
-        ShoppingCart shoppingCart = new ShoppingCart();
+
+
+
+
+                ShoppingCart shoppingCart = new ShoppingCart();
         List<SelectedProduct> selectedProducts = new ArrayList<>();
         SelectedProduct[] initSelectedProduct = {
                 new SelectedProduct(initProduct[2], 5),
